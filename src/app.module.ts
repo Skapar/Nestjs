@@ -5,6 +5,7 @@ import { BookmarkModule } from './bookmark/bookmark.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { OrganizationModule } from './organization/organization.module';
 import { LessonModule } from './lesson/lesson.module';
+import { SubscriptionTypeModule } from './subscription-type/subscription-type.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { LessonModule } from './lesson/lesson.module';
     PrismaModule,
     OrganizationModule,
     LessonModule,
+    SubscriptionTypeModule,
   ],
 })
 export class AppModule {}
