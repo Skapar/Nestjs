@@ -15,10 +15,7 @@ export class AuthController {
   @Post('signup')
   @UsePipes(ValidationPipe)
   signup(@Body() dto: AuthDto) {
-    console.log({
-      dto,
-    });
-    return this.authService.signup();
+    return this.authService.signup(dto);
   }
 
   @Post('signin')
