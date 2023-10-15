@@ -11,19 +11,65 @@ datasource db {
 }
 
 model Organization {
-  id    Int     @id @default(autoincrement())
-  title String  @db.VarChar(255)
+  id    Int    @id @default(autoincrement())
+  title String @db.VarChar(255)
 
-  @@map(name: "organizations")
+  @@map("organizations")
 }
+
 model User {
-  id Int @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id             Int @id @default(autoincrement())
 
-  email String
-  hash String
+  firstname               String
+  lastname                String
 
-  firstname String?
-  lastname String?
+  organizationId Int @map(name: "organization_id")
+
+  email String @unique
+  hash  String
+
+  UserSubscriptionTypeMap UserSubscriptionTypeMap[]
+  courses  Courses[]
+
+  @@map("users")
+}
+
+model SubscriptionType {
+  id                      Int                       @id @default(autoincrement())
+  title                   String
+  UserSubscriptionTypeMap UserSubscriptionTypeMap[]
+  Courses                 Courses[]
+
+  @@map("sub_type")
+}
+
+model UserSubscriptionTypeMap {
+  id                   Int              @id @default(autoincrement())
+  subscription_type    SubscriptionType @relation(fields: [subscription_type_id], references: [id])
+  user                 User             @relation(fields: [user_id], references: [id])
+  subscription_type_id Int
+  user_id              Int
+
+  @@map("user_sub")
+}
+
+model Courses {
+  id                   Int              @id @default(autoincrement())
+  title                String
+  description          String
+  subscription_type    SubscriptionType @relation(fields: [subscription_type_id], references: [id])
+  subscription_type_id Int
+  Lesson               Lesson[]
+  user                 User @relation(fields: [user_id], references: [id])
+  user_id              Int
+  @@map("courses")
+}
+
+model Lesson {
+  id          Int     @id @default(autoincrement())
+  title       String
+  description String
+  video_link  String
+  course      Courses @relation(fields: [course_id], references: [id])
+  course_id   Int
 }
