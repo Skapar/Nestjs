@@ -6,7 +6,7 @@ import { CreateOrganizationDto } from './dto/all';
 export class OrganizationController {
   constructor(private readonly organizationService: OrganizationService) {}
 
-  @Post()
+  @Post('new')
   create(@Body() createOrganizationDto: CreateOrganizationDto) {
     return this.organizationService.create(createOrganizationDto);
   }
