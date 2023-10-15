@@ -31,7 +31,7 @@ export class AuthService {
         hash,
         firstname: dto.firstname,
         lastname: dto.lastname,
-        organizationId: dto.organization_id,
+        organizationId: dto.organizationId,
       },
     });
 

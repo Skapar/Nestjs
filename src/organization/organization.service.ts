@@ -7,7 +7,12 @@ export class OrganizationService {
   constructor(private prisma: PrismaService) {}
 
   async create(createOrganizationDto: CreateOrganizationDto) {
-    return this.prisma.organization.create({ data: createOrganizationDto });
+    const organization = await this.prisma.organization.create({
+      data: {
+        title: createOrganizationDto.title,
+      },
+    });
+    return organization;
   }
 
   async findOne(id: number) {
