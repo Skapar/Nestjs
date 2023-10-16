@@ -59,9 +59,9 @@ model Courses {
   description          String
   subscription_type    SubscriptionType @relation(fields: [subscription_type_id], references: [id])
   subscription_type_id Int
-  Lesson               Lesson[]
-  user                 User             @relation(fields: [user_id], references: [id])
-  user_id              Int
+  lessons              Lesson[]
+  User                 User?            @relation(fields: [userId], references: [id])
+  userId               Int?
 
   @@map("courses")
 }
@@ -71,6 +71,6 @@ model Lesson {
   title       String
   description String
   video_link  String
-  course      Courses @relation(fields: [course_id], references: [id])
   course_id   Int
+  course      Courses @relation(fields: [course_id], references: [id])
 }

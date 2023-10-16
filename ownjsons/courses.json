@@ -1,0 +1,15 @@
+[
+    {
+      "id" : 1,
+      "title": "Idi na krishu",
+      "description": "na etom course we'll learn how to go ",
+      "subscription_type_id": 1
+    },
+    {
+      "id": 2,
+      "title": "begai bistree",
+      "description": "na etom course we'll learn how to run faster",
+      "subscription_type_id": 2
+    }
+  ]
+  
