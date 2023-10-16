@@ -18,32 +18,32 @@ model Organization {
 }
 
 model User {
-  id             Int @id @default(autoincrement())
+  id Int @id @default(autoincrement())
 
-  firstname               String
-  lastname                String
+  firstname String
+  lastname  String
 
   organizationId Int @map(name: "organization_id")
 
   email String @unique
   hash  String
 
-  UserSubscriptionTypeMap UserSubscriptionTypeMap[]
-  courses  Courses[]
+  UserSubscriptionTypeMap UserSubsTypeMap[]
+  courses                 Courses[]
 
   @@map("users")
 }
 
 model SubscriptionType {
-  id                      Int                       @id @default(autoincrement())
+  id                      Int               @id @default(autoincrement())
   title                   String
-  UserSubscriptionTypeMap UserSubscriptionTypeMap[]
+  UserSubscriptionTypeMap UserSubsTypeMap[]
   Courses                 Courses[]
 
   @@map("sub_type")
 }
 
-model UserSubscriptionTypeMap {
+model UserSubsTypeMap {
   id                   Int              @id @default(autoincrement())
   subscription_type    SubscriptionType @relation(fields: [subscription_type_id], references: [id])
   user                 User             @relation(fields: [user_id], references: [id])
@@ -60,8 +60,9 @@ model Courses {
   subscription_type    SubscriptionType @relation(fields: [subscription_type_id], references: [id])
   subscription_type_id Int
   Lesson               Lesson[]
-  user                 User @relation(fields: [user_id], references: [id])
+  user                 User             @relation(fields: [user_id], references: [id])
   user_id              Int
+
   @@map("courses")
 }
 
