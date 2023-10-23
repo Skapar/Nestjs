@@ -7,6 +7,8 @@ import { SubscriptionTypeModule } from './subscription-type/subscription-type.mo
 import { UserSubscriptionTypeMapModule } from './user-subscription-type-map/user-subscription-type-map.module';
 import { CoursesModule } from './courses/courses.module';
 import { ConfigModule } from '@nestjs/config';
+// import { LessonsModule } from './lessons/lessons.module';
+import { LessonModule } from './lesson/lesson.module';
 
 @Module({
   imports: [
@@ -20,6 +22,8 @@ import { ConfigModule } from '@nestjs/config';
     SubscriptionTypeModule,
     UserSubscriptionTypeMapModule,
     CoursesModule,
+    LessonModule,
+    // LessonsModule,
   ],
 })
 export class AppModule {}
