@@ -3,7 +3,7 @@ import { OrganizationService } from './organization.service';
 import { CreateOrganizationDto } from './dto/all';
 
 @Controller('organization')
-export class OrganizationController {
+export class OrganizationControlle {
   constructor(private readonly organizationService: OrganizationService) {}
 
   @Post('new')
