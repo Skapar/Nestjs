@@ -5,7 +5,7 @@ import { UserSubscriptionTypeMapDto } from './dto/main';
 @Controller('user-subscription-type-map')
 export class UserSubscriptionTypeMapController {
   constructor(
-    private userSubscriptionTypeMapService: UserSubscriptionTypeMapServic,
+    private userSubscriptionTypeMapService: UserSubscriptionTypeMapService,
   ) {}
 
   @Post()
