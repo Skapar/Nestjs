@@ -3,5 +3,5 @@ export class CreateLessonDto {
   description: string;
   video_link: number;
   courseId: number;
-  userId: number;
+  userId: numbe;
 }
