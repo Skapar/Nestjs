@@ -1,5 +1,19 @@
+import { IsNumber, IsOptional, IsString } from 'class-validator';
+
 export class UpdateLessonDto {
+  @IsString()
+  @IsOptional()
   title?: string;
+
+  @IsString()
+  @IsOptional()
   description?: string;
-  video_link?: number;
+
+  @IsString()
+  @IsOptional()
+  video_link?: string;
+
+  @IsNumber()
+  @IsOptional()
+  courseId?: number;
 }

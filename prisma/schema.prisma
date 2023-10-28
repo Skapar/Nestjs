@@ -71,6 +71,8 @@ model Lesson {
   title       String
   description String
   video_link  String
-  course_id   Int
   course      Courses @relation(fields: [course_id], references: [id])
+  course_id   Int
+
+  @@map("lesson")
 }
