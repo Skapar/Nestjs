@@ -6,6 +6,7 @@ import { CreateLessonDto, UpdateLessonDto } from './dto/main';
 export class LessonService {
   constructor(private prisma: PrismaService) {}
   async create(lessondto: CreateLessonDto) {
+    console.log(lessondto);
     return this.prisma.lesson.create({
       data: {
         title: lessondto.title,
