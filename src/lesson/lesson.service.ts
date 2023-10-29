@@ -19,13 +19,13 @@ export class LessonService {
       },
     });
   }
-  async read(lessonId: number) {
+  async find(lessonId: number) {
     const lesson = await this.prisma.lesson.findUnique({
       where: { id: lessonId },
     });
 
     if (!lesson) {
-      throw new NotFoundException('course with id ${lessonid} ne nawlosb');
+      throw new NotFoundException('lesson with id ${lessonid} ne nawlosb');
     }
     return lesson;
   }
@@ -35,7 +35,7 @@ export class LessonService {
     });
 
     if (!existingLesson) {
-      throw new NotFoundException('course with id ${lessonid} ne nawlosb');
+      throw new NotFoundException('lesson with id ${lessonid} ne nawlosb');
     }
 
     return this.prisma.lesson.update({
@@ -49,7 +49,7 @@ export class LessonService {
     });
 
     if (!lesson) {
-      throw new NotFoundException('course with id ${lessonid} ne nawlosb');
+      throw new NotFoundException('lesson with id ${lessonid} ne nawlosb');
     }
     return this.prisma.lesson.delete({
       where: { id: lessonId },
